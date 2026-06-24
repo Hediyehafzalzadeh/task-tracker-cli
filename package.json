@@ -1,0 +1,10 @@
+{
+  "name": "task-tracker-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI task tracker",
+  "main": "main.js",
+  "type": "module",
+  "dependencies": {
+    "prompts": "^2.4.2"
+  }
+}
