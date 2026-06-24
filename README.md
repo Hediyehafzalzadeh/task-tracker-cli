@@ -1,10 +1,20 @@
 # Simple CLI Task Tracker
 
-A simple command-line task tracker built with Node.js.
+A simple command-line task tracker built with Node.js to manage tasks from the terminal.
+
+This project was built as part of the [Task Tracker project on roadmap.sh](https://roadmap.sh/projects/task-tracker).
+
+## Features
+
+* Add, update, and delete tasks
+* Mark tasks as `todo`, `in-progress`, or `done`
+* List all tasks
+* Filter tasks by status
+* Store tasks in a JSON file
 
 ## Usage
 
-Run the app with:
+Run the application with:
 
 ```bash
 node index.js <command>
@@ -34,7 +44,7 @@ Deletes the task with ID `1`.
 node index.js update 1 "new task name"
 ```
 
-Updates the task with ID `1` and changes its name.
+Updates the task with ID `1`.
 
 ### Mark a task as done
 
@@ -42,7 +52,7 @@ Updates the task with ID `1` and changes its name.
 node index.js mark-done 1
 ```
 
-Marks the task with ID `1` as `done`.
+Marks the task as `done`.
 
 ### Mark a task as in progress
 
@@ -50,7 +60,7 @@ Marks the task with ID `1` as `done`.
 node index.js mark-in-progress 1
 ```
 
-Marks the task with ID `1` as `in-progress`.
+Marks the task as `in-progress`.
 
 ### Mark a task as todo
 
@@ -58,7 +68,7 @@ Marks the task with ID `1` as `in-progress`.
 node index.js mark-todo 1
 ```
 
-Marks the task with ID `1` as `todo`.
+Marks the task as `todo`.
 
 ### List all tasks
 
@@ -74,23 +84,31 @@ Shows all tasks.
 node index.js list todo
 ```
 
-Shows all tasks with `todo` status.
+Shows tasks with `todo` status.
 
 ```bash
 node index.js list done
 ```
 
-Shows all tasks with `done` status.
+Shows tasks with `done` status.
 
 ```bash
 node index.js list in-progress
 ```
 
-Shows all tasks with `in-progress` status.
+Shows tasks with `in-progress` status.
 
+## Task Properties
 
-node index.js list done -> To show tasks with "done" status 
+Each task includes:
 
-node index.js list in-progress -> To show tasks with "in progress" status 
+* `id` — unique task ID
+* `description` — task description
+* `status` — `todo`, `in-progress`, or `done`
+* `createdAt` — creation timestamp
+* `updatedAt` — last update timestamp
 
+## Project Source
+
+This project is based on the Task Tracker challenge from [roadmap.sh](https://roadmap.sh/?utm_source=chatgpt.com). The original project brief is available here: [Task Tracker project page](https://roadmap.sh/projects/task-tracker).
 
