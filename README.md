@@ -1,28 +1,93 @@
-Simple CLI task tracker 
+# Simple CLI Task Tracker
 
-How to run  : 
+A simple command-line task tracker built with Node.js.
 
-run with command -> node index.js + YOUR COMMAND 
+## Usage
 
+Run the app with:
 
-The list of commands and their usage :
+```bash
+node index.js <command>
+```
 
+## Commands
 
-node index.js add "task name" -> To add a new task 
+### Add a task
 
-node index.js delete 1 -> To delete task with ID 1 
+```bash
+node index.js add "task name"
+```
 
-node index.js update 1 "new task name"-> To update task with ID 1 and change its name
+Adds a new task.
 
-node index.js mark-done 1 -> To mark task as done 
+### Delete a task
 
-node index.js mark-in-progress 1 -> To mark task as in progress
+```bash
+node index.js delete 1
+```
 
-node index.js mark-todo 1  -> To mark task as todo
+Deletes the task with ID `1`.
 
-node index.js list ->  To show all the tasks
+### Update a task
 
-node index.js list todo -> To show tasks with "to do" status 
+```bash
+node index.js update 1 "new task name"
+```
+
+Updates the task with ID `1` and changes its name.
+
+### Mark a task as done
+
+```bash
+node index.js mark-done 1
+```
+
+Marks the task with ID `1` as `done`.
+
+### Mark a task as in progress
+
+```bash
+node index.js mark-in-progress 1
+```
+
+Marks the task with ID `1` as `in-progress`.
+
+### Mark a task as todo
+
+```bash
+node index.js mark-todo 1
+```
+
+Marks the task with ID `1` as `todo`.
+
+### List all tasks
+
+```bash
+node index.js list
+```
+
+Shows all tasks.
+
+### List tasks by status
+
+```bash
+node index.js list todo
+```
+
+Shows all tasks with `todo` status.
+
+```bash
+node index.js list done
+```
+
+Shows all tasks with `done` status.
+
+```bash
+node index.js list in-progress
+```
+
+Shows all tasks with `in-progress` status.
+
 
 node index.js list done -> To show tasks with "done" status 
 
