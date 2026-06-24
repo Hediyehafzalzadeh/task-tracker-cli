@@ -8,7 +8,7 @@ run with command -> node index.js + YOUR COMMAND
 The list of commands and their usage :
 
 
-node index.js add "task name" -> To adding a new task 
+node index.js add "task name" -> To add a new task 
 
 node index.js delete 1 -> To delete task with ID 1 
 
