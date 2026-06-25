@@ -9,20 +9,21 @@ if (!fs.existsSync(filePath)) {
 }
 
 
-async function getTasksFromFile (){
-    const existing = await fs.readFileSync(filePath , 'UTF-8');
+ function getTasksFromFile (){
+    const existing =  fs.readFileSync(filePath , 'UTF-8');
     return existing.split("\n").filter(Boolean).map(line => JSON.parse(line));
 }
- const makeID = async () => {
+ const makeID =  () => {
 
-        const tasks = await getTasksFromFile();
+        const tasks =  getTasksFromFile();
         if(tasks.length === 0){
             return 1;
         }
         return tasks[tasks.length - 1].id + 1;
 }
-async function addTask(taskName) {
-    const tasks = await getTasksFromFile();
+ function addTask(taskName) {
+
+    const tasks =  getTasksFromFile();
 
     if(tasks.find(task => task.name === taskName)){
         console.log(`Task "${taskName}" already exists in the list.`);
@@ -30,30 +31,35 @@ async function addTask(taskName) {
     }
   
     const task = {
-        id : await makeID(),
+        
+        id :  makeID(),
         name : taskName ,
         status : 'todo' 
 
     }
+
+
     tasks.push(task);
     
-    await fs.writeFileSync(filePath , tasks.map(task => JSON.stringify(task)).join("\n") + "\n");
+     fs.writeFileSync(filePath , tasks.map(task => JSON.stringify(task)).join("\n") + "\n");
     console.log(`Task "${taskName}" has been added to the list.(ID: ${task.id})`);
 
 }
 
-async function deleteTask(taskId){
-    const tasks = await getTasksFromFile();
+ function deleteTask(taskId){
+
+    const tasks =  getTasksFromFile();
    
     const newTasks = tasks.filter(task => task.id !== Number(taskId))
 
-    await fs.writeFileSync(filePath , newTasks.map(task => JSON.stringify(task)).join("\n") + "\n");
+     fs.writeFileSync(filePath , newTasks.map(task => JSON.stringify(task)).join("\n") + "\n");
     console.log(`Task with ID "${taskId}" has been deleted from the list.`);
 
 }
 
-async function listTasks(sub) {
-    const tasks = await getTasksFromFile();
+ function listTasks(sub) {
+
+    const tasks =  getTasksFromFile();
 
     switch (sub) {
 
@@ -79,8 +85,8 @@ async function listTasks(sub) {
 
 }
 
-async function updateTask(taskId , newTask , status){
-    const tasks = await getTasksFromFile();
+ function updateTask(taskId , newTask , status){
+    const tasks =  getTasksFromFile();
     let filteredTasks = tasks.filter(task => task.id !== Number(taskId) );
 
     filteredTasks.push({
@@ -89,7 +95,7 @@ async function updateTask(taskId , newTask , status){
         status : status ? status : tasks.find(task => task.id === Number(taskId)).status
     })
 
-        await fs.writeFileSync(filePath , filteredTasks.map(task => JSON.stringify(task)).join("\n") + "\n");
+         fs.writeFileSync(filePath , filteredTasks.map(task => JSON.stringify(task)).join("\n") + "\n");
         console.log(`Task with ID "${taskId}" has been updated.`);
 
 
