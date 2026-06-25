@@ -31,10 +31,13 @@ if (!fs.existsSync(filePath)) {
     }
   
     const task = {
-        
+
         id :  makeID(),
         name : taskName ,
-        status : 'todo' 
+        description : '',
+        status : 'todo' ,
+        createdAt : new Date().toISOString(),
+        updatedAt : new Date().toISOString()
 
     }
 
@@ -92,7 +95,9 @@ if (!fs.existsSync(filePath)) {
     filteredTasks.push({
         id : Number(taskId),
         name : newTask ? newTask : tasks.find(task => task.id === Number(taskId)).name,
-        status : status ? status : tasks.find(task => task.id === Number(taskId)).status
+        status : status ? status : tasks.find(task => task.id === Number(taskId)).status,
+        createdAt : tasks.find(task => task.id === Number(taskId)).createdAt,
+        updatedAt : new Date().toISOString()
     })
 
          fs.writeFileSync(filePath , filteredTasks.map(task => JSON.stringify(task)).join("\n") + "\n");
